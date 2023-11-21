@@ -1,0 +1,213 @@
+﻿/* form =================================== */
+#form-add,
+#form-edit {/*
+    display: flex;
+    flex-direction: column;*/
+    padding: 12px 16px;
+    width: 100%;
+    /* max-width: calc(100% - 32px); */
+    background-color: #fff;
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    border-radius: 10px;
+    z-index: 5;
+    margin-top: 16px;
+}
+
+@keyframes showForm {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-info {
+    scrollbar-width: 20px;
+    flex: 1;
+}
+
+.form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.form-result {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.error-form, .success-form {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .error-form i, .success-form i {
+        position: relative;
+        margin-right: 4px;
+        font-size: 2rem;
+    }
+
+    .error-form p, .success-form p {
+        margin: 0;
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+.error-form {
+    color: red;
+    background-color: rgb(244, 202, 202);
+}
+
+.success-form {
+    color: rgb(7, 199, 7);
+    background-color: rgb(187, 246, 187);
+}
+
+.btn--close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 11px 14px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.deck-form, .deck-form1 {
+    z-index: 3;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    padding-bottom: 12px;
+}
+
+#form-add input[type="file"],
+#form-edit input[type="file"] {
+    margin-top: 8px;
+    max-width: 200px;
+    width: 100%;
+}
+
+.img__student {
+    max-width: 200px;
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.form__control {
+    display: block;
+    margin: 0;
+    font-size: 1.6rem;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    outline-color: #0080ff;
+    min-width: 100%;
+}
+
+#form-add input[type="file"],
+#form-edit input[type="file"],
+#form-add input[type="radio"],
+#form-edit input[type="radio"],
+#form-add input[type="checkbox"],
+#form-edit input[type="checkbox"] {
+    cursor: pointer;
+}
+
+#gender,
+#gender-edit {
+    display: flex;
+}
+
+    #gender > div,
+    #gender-edit > div {
+        display: flex;
+        align-items: center;
+    }
+
+        #gender > div > label,
+        #gender-edit > div > label {
+            user-select: none;
+            padding: 6px 12px 6px 0;
+        }
+
+    #gender input[type="radio"],
+    #gender-edit input[type="radio"] {
+        padding: 8px;
+        margin-right: 4px;
+        position: relative;
+        top: 1px;
+        min-width: auto;
+    }
+
+.error-message {
+    font-size: 1.2rem;
+    color: red;
+}
+
+.form-label {
+    font-size: 1.6rem;
+}
+
+.input-required {
+    color: red;
+    margin-left: 4px;
+}
+
+.block-button {
+    text-align: center;
+    padding: 12px 0;
+}
+
+.btn-submit {
+    background-color: #1d89e4;
+    color: #fff;
+    font-size: 1.6rem;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.invalid .form__control {
+    border: 1px solid red;
+    background-color: #fbefef;
+}
+
+@media (max-width: 1013px) {
+
+    .form__control {
+        padding: 8px 12px;
+    }
+
+    .btn-submit {
+        padding: 9px 24px;
+    }
+}
+
+@media (max-width: 739px) {
+    #gender > div > label,
+    #gender-edit > div > label {
+        padding: 8px 12px 8px 0;
+    }
+}

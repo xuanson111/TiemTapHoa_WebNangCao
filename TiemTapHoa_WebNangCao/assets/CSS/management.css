@@ -1,0 +1,154 @@
+﻿
+.link {
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-top: 4px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.link_body {
+    display: flex;
+    align-items: center;
+}
+
+    .link_body a {
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    .link_body i {
+        position: relative;
+        top: 1px;
+        padding: 0 4px;
+    }
+
+.data {
+    width: 100%;
+    background-color: #fff;
+    padding: 16px;
+    margin-top: 16px;
+    border-radius: 12px;
+}
+
+.data-management {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.data-search {
+    display: flex;
+}
+
+.search-input {
+    width: 310px;
+    position: relative;
+    display: flex;
+}
+
+    .search-input input {
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 1.6rem;
+        outline-color: #1d89e4;
+        flex: 1;
+    }
+
+    .search-input i {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        opacity: .5;
+    }
+    .search-input .buttonSearch {
+        padding: 0 12px;
+        margin: 0 0 0 8px;
+        outline: none;
+        border: none;
+        background-color: #1d89e4;
+        color: #ffffff;
+        font-size: 1.4rem;
+        border-radius: 4px;
+    }
+
+
+.search-filter {
+    margin-left: 8px;
+}
+
+    .search-filter select {
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+        font-size: 1.6rem;
+        outline-color: #1d89e4;
+        cursor: pointer;
+    }
+
+.data-update {
+}
+
+.Btn {
+    background-color: #1d89e4;
+    color: #fff;
+    font-size: 1.6rem;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+
+.data-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.6rem;
+    overflow: hidden;
+    border: 1px solid #1d89e4;
+    border-radius: 10px;
+}
+
+    .data-table th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border: none;
+    }
+
+    .data-table tr {
+        border-bottom: 1px solid #ccc;
+    }
+
+.table-head {
+    background-color: #1d89e4;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+}
+
+.data-table tr:nth-child(2n) {
+    background-color: #f0ecec;
+}
+
+.data-table img {
+    width: 36px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.data-table i {
+    color: #454545;
+    cursor: pointer;
+}

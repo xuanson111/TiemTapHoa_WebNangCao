@@ -1,0 +1,116 @@
+﻿@model IEnumerable<TiemTapHoa.Models.NhanVienView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities db = new TiemTapHoa.Models.DBTiemTapHoaEntities();
+}
+
+<link rel="stylesheet" href="~/assets/CSS/staff.css" />
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+<div class="link">
+    <h2 class="title">Nhân viên</h2>
+    <div class="link_body">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Index", "NhanVien")">Nhân viên</a>
+    </div>
+</div>
+
+<div class="data">
+    <h2 class="data-title">Danh sách nhân viên</h2>
+
+    <div class="data-management">
+        <div class="data-search">
+            <form class="search-input">
+                @Html.TextBox("searchString", null, new { placeholder = "Nhập tên nhà cung cấp" })
+                <button type="submit" class="buttonSearch">Tìm kiếm</button>
+            </form>
+
+            <form class="search-filter">
+                <select name="filter" id="filter">
+                    <option value="0" selected="@(ViewBag.cv == "0" || ViewBag.cv == "")">Tất cả</option>
+                    @{
+                        foreach (var cv in db.ChucVus)
+                        {
+                            <option value="@cv.MaCV" selected="@(ViewBag.cv == cv.MaCV.ToString())">@cv.TenCV</option>
+                        }
+                    }
+                </select>
+            </form>
+        </div>
+
+        <div class="data-update">
+            <button class="Btn" onclick="location.href='@Url.Action("Create", "NhanVien")'">Thêm</button>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <tr class="table-head">
+            <th></th>
+            <th>Mã</th>
+            <th>Họ tên</th>
+            <th>Ngày sinh</th>
+            <th>Email</th>
+            <th>SDT</th>
+            <th>Địa chỉ</th>
+            <th>Số tài khoản</th>
+            <th>Giới tính</th>
+            <th>Chức vụ</th>
+            <th></th>
+        </tr>
+
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.UrlHinhAnh" alt="">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaNV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenNV)
+                    </td>
+                    <td>
+                        @string.Format("{0:dd/MM/yyyy}", item.NgaySinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoTaiKhoan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GioiTinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenChucVu)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+
+<script>
+    let formFilter = document.querySelector('.search-filter');
+    let selectElement = formFilter.querySelector('#filter');
+
+    selectElement.onchange = () => {
+        formFilter.submit();
+    }
+</script>

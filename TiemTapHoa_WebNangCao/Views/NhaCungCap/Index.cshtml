@@ -1,0 +1,94 @@
+﻿@model IEnumerable<TiemTapHoa_WebNangCao.Models.NhaCungCap>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/assets/CSS/supplier.css" />
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+<title>Quản lý nhân viên</title>
+
+
+<div class="link">
+    <h2 class="title">Nhà cung cấp</h2>
+    <div class="link_body">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Index", "NhaCungCap")">Nhà cung cấp</a>
+    </div>
+</div>
+
+<div class="data">
+    <h2 class="data-title">Danh sách nhà cung cấp</h2>
+
+    <div class="data-management">
+        <div class="data-search">
+            <form method="post" class="search-input">
+                @Html.TextBox("searchString", null, new { placeholder = "Nhập tên nhà cung cấp" })
+                @*<i class="fa-solid fa-magnifying-glass"></i>*@
+                <button type="submit" class="buttonSearch">Tìm kiếm</button>
+            </form>
+
+            <form class="search-filter">
+                <select name="filter" id="filter">
+                    <option value="Tất cả" selected="@(ViewBag.filterNCC == "Tất cả" || ViewBag.filterNCC =="")">Tất cả</option>
+                    <option value="Hải Dương" selected="@(ViewBag.filterNCC == "Hải Dương")">Hải Dương</option>
+                    <option value="Hà Nội" selected="@(ViewBag.filterNCC == "Hà Nội")">Hà Nội</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="data-update">
+            <button class="Btn" onclick="location.href='@Url.Action("Create", "NhaCungCap")'">Thêm</button>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <tr class="table-head">
+            <th>Mã</th>
+            <th>Tên</th>
+            <th>Địa chỉ</th>
+            <th>SDT</th>
+            <th>Email</th>
+            <th>Số tài khoản</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoTaiKhoan)
+                </td>
+                <td class="">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaNCC }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaNCC }) |
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<script>
+    let formFilter = document.querySelector('.search-filter');
+    let selectElement = formFilter.querySelector('#filter');
+
+    selectElement.onchange = () => {
+        formFilter.submit();
+    }
+</script>
