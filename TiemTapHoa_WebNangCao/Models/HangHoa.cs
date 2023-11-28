@@ -27,6 +27,7 @@ namespace TiemTapHoa_WebNangCao.Models
         public Nullable<double> SoLuong { get; set; }
         public string LoaiHangHoa { get; set; }
         public string HinhAnh { get; set; }
+        public string DonVi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHD> ChiTietHDs { get; set; }

@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="DBTiemTapHoaModel.NhanVien" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBTiemTapHoaModel.PhieuNhap" Width="1.5" PointX="10" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="DBTiemTapHoaModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBTiemTapHoaModel.ThongKeDoanhThu" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTiemTapHoaModel.ThongKeDoanhThu" Width="1.5" PointX="7.625" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="DBTiemTapHoaModel.FK__BangLuong__MaNV__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="DBTiemTapHoaModel.FK__ChiTietHD__MaHD__47DBAE45" ManuallyRouted="false" />
         <AssociationConnector Association="DBTiemTapHoaModel.FK__ChiTietHD__MaHH__48CFD27E" ManuallyRouted="false" />
@@ -24,6 +24,7 @@
         <AssociationConnector Association="DBTiemTapHoaModel.FK__NhanVien__ChucVu__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="DBTiemTapHoaModel.FK__HoaDon__MaNV__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="DBTiemTapHoaModel.FK__PhieuNhap__MaNCC__4BAC3F29" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBTiemTapHoaModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

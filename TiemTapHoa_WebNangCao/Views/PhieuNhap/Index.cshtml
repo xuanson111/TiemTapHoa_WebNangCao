@@ -1,0 +1,129 @@
+﻿@model IEnumerable<TiemTapHoa_WebNangCao.Models.PhieuNhapView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities db = new TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities();
+}
+
+<link rel="stylesheet" href="~/assets/CSS/supplier.css" />
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+<title>Quản lý chức vụ</title>
+
+
+<div class="link">
+    <h2 class="title">Nhập hàng</h2>
+    <div class="link_body">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Index", "PhieuNhap")">Nhập hàng</a>
+    </div>
+</div>
+
+<div class="data">
+    <h2 class="data-title">Danh sách Nhập hàng</h2>
+
+    <div class="data-management">
+        <div class="data-search">
+            <form class="search-filter">
+                <select name="filter" id="filter">
+                    <option value="0" selected="@(ViewBag.ncc == "0" || ViewBag.ncc == "")">Tất cả</option>
+                    @{
+                        foreach (var ncc in db.NhaCungCaps)
+                        {
+                            <option value="@ncc.MaNCC" selected="@(ViewBag.ncc == ncc.MaNCC.ToString())">@ncc.TenNCC</option>
+                        }
+                    }
+                </select>
+            </form>
+        </div>
+
+            <div class="data-update">
+                <button class="Btn" onclick="location.href='@Url.Action("Create", "PhieuNhap")'">Thêm</button>
+            </div>
+        </div>
+
+    <table class="data-table">
+        <tr class="table-head">
+            <th>Mã phiếu</th>
+            <th>Tên Nhà cung cấp</th>
+            <th>Ngày tạo</th>
+            <th>Thành tiền</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPhieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNCC)
+                </td>
+                <td>
+                    @string.Format("{0:dd/MM/yyyy}", item.NgayTao)
+                </td>
+                <td>
+                    @string.Format("{0:N0}", item.ThanhTien)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.MaPhieu })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script>
+    let formFilter = document.querySelector('.search-filter');
+    let selectElement = formFilter.querySelector('#filter');
+
+    selectElement.onchange = () => {
+        formFilter.submit();
+    }
+</script>
+
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayTao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaCungCap.TenNCC)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieu }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MaPhieu }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieu })
+            </td>
+        </tr>
+    }
+
+    </table> *@

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TiemTapHoa_WebNangCao.Models.HangHoa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities db = new TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities();
+    var loaiHH = db.HangHoas.Where(hh => hh.LoaiHangHoa != "" && hh.LoaiHangHoa != null).Select(hh => hh.LoaiHangHoa).Distinct();
+}
+
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+<div class="link">
+    <h2 class="title">Hàng hóa</h2>
+    <div class="link_body">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Index", "HangHoa")">Hàng hóa</a>
+    </div>
+</div>
+
+<div class="data">
+    <h2 class="data-title">Danh sách Hàng hóa</h2>
+
+    <div class="data-management">
+        <div class="data-search">
+            <form class="search-input">
+                @Html.TextBox("searchString", null, new { placeholder = "Nhập tên hàng hóa" })
+                <button type="submit" class="buttonSearch">Tìm kiếm</button>
+            </form>
+
+            <form class="search-filter">
+                <select name="filter" id="filter">
+                    <option value="0" selected="@(ViewBag.loaiHH == "0" || ViewBag.loaiHH == "")">Tất cả</option>
+                    @{
+                        foreach (var loai in loaiHH)
+                        {
+                            <option value="@loai" selected="@(ViewBag.loaiHH == loai)">@loai</option>
+                        }
+                    }
+                </select>
+            </form>
+        </div>
+
+        <div class="data-update">
+            <button class="Btn" onclick="location.href='@Url.Action("Create", "HangHoa")'">Thêm</button>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <tr class="table-head">
+            <th></th>
+            <th>Mã</th>
+            <th>Tên hàng hóa</th>
+            <th>Loại</th>
+            <th>Số lượng</th>
+            <th>Đơn vị</th>
+            <th>Đơn giá</th>
+            <th></th>
+        </tr>
+
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.HinhAnh" alt="">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaHH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenHH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiHangHoa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonVi)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", item.DonGia)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MaHH }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MaHH })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+
+<script>
+    let formFilter = document.querySelector('.search-filter');
+    let selectElement = formFilter.querySelector('#filter');
+
+    selectElement.onchange = () => {
+        formFilter.submit();
+    }
+</script>
+

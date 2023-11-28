@@ -134,6 +134,23 @@
     cursor: pointer;
 }
 
+/*select + input ===================================*/
+.form__control-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group {
+    flex: 1,
+}
+
+.button-group {
+    padding: 0 8px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+/*end ==============================================*/
+
 #gender,
 #gender-edit {
     display: flex;

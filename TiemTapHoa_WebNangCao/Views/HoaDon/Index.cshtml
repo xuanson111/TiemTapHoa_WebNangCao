@@ -1,0 +1,131 @@
+﻿@model IEnumerable<TiemTapHoa_WebNangCao.Models.HangHoa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities db = new TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities();
+    var loaiHH = db.HangHoas.Where(hh => hh.LoaiHangHoa != "" && hh.LoaiHangHoa != null).Select(hh => hh.LoaiHangHoa).Distinct();
+    List<TiemTapHoa_WebNangCao.Models.ChiTietHDView> lst = new List<TiemTapHoa_WebNangCao.Models.ChiTietHDView>();
+}
+
+<link rel="stylesheet" href="~/assets/CSS/addBill.css" />
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+
+<div class="content-main">
+    <div class="product-menu shadow">
+        <div class="data" style="margin: 0; flex: 1; display: flex; flex-direction: column;">
+
+            <div class="data-management">
+                <div class="data-search">
+                    <form class="search-input">
+                        @Html.TextBox("searchString", null, new { placeholder = "Nhập tên hàng hóa" })
+                        <button type="submit" class="buttonSearch">Tìm kiếm</button>
+                    </form>
+
+                    <form class="search-filter">
+                        <select name="filter" id="filter">
+                            <option value="0" selected="@(ViewBag.loaiHH == "0" || ViewBag.loaiHH == "")">Tất cả</option>
+                            @{
+                                foreach (var loai in loaiHH)
+                                {
+                                    <option value="@loai" selected="@(ViewBag.loaiHH == loai)">@loai</option>
+                                }
+                            }
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+            <div id="data-table" style="overflow-y: scroll; flex: 1;">
+                <table class="data-table">
+                    <tr class="table-head">
+                        <th></th>
+                        <th>Tên</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Đơn vị</th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.HinhAnh" />
+                            </td>
+                            <td>@item.TenHH</td>
+                            <td>@string.Format("{0:N0}", item.DonGia)</td>
+                            <td>@string.Format("{0:N0}", item.SoLuong)</td>
+                            <td>@item.DonVi</td>
+                            <td class="btn--addOrder">
+                                @Html.ActionLink("Thêm", "addOrderItem", new { id = item.MaHH })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="selected-product shadow">
+        <div class="button-clear">
+            <button>Clear</button>
+        </div>
+        <div class="selected-product-main">
+
+
+            <form class="selected-product-item">
+                <div class="item-info">
+                    <input class="item-order" value="1" name="id" readonly></input>
+                    <h2 class="item-name">coca cola</h2>
+                    <input type="number" name="itemQuantity" class="item-quantity">
+                    <input type="number" name="itemPrice" class="item-price" readonly>
+                    <input type="number" name="itemTotal" class="item-total" readonly>
+                </div>
+                <div class="item-delete">
+                    <a href="@Url.Action("addOrderItem","HoaDon")">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </div>
+            </form>
+
+
+        </div>
+        <div class="selected-product-management">
+            <div class="bill-total">
+                <h2 class="bill-total-title">Tổng tiền:</h2>
+                <h2 class="bill-total-text">546,000</h2>
+            </div>
+            <div class="button-block">
+                <button class="btn-pay-preview">
+                    <i class="fa-solid fa-print"></i>
+                    Xem trước
+                </button>
+                <button class="btn-pay">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Thanh toán
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let formFilter = document.querySelector('.search-filter');
+    let selectElement = formFilter.querySelector('#filter');
+    let btnAddOrders = document.querySelectorAll('.btn--addOrder');
+    let panelOrder = document.querySelector('.selected-product-main');
+
+    selectElement.onchange = () => {
+        formFilter.submit();
+    }
+
+    btnAddOrders.forEach((btnAdd) => {
+        btnAdd.onclick = () => {
+            @{}
+        }
+    })
+    let array = [];
+    
+</script>

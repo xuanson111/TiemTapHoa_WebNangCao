@@ -129,12 +129,15 @@ namespace TiemTapHoa.Controllers
             // kiểm tra xem người dùng có muốn chỉnh sửa ảnh không (có khi nv.FileHinhAnh không rỗng)
             if (nv.FileHinhAnh != null && nv.FileHinhAnh.ContentLength > 0)
             {
-                // xóa hình ảnh cũ
-                string duongDanTepTin = Path.Combine(Server.MapPath("~/assets/img/"), editnv.HinhAnh.Substring(12));
-                if (System.IO.File.Exists(duongDanTepTin))
+                if (editnv.HinhAnh != null && editnv.HinhAnh != "")
                 {
-                    // Thực hiện xóa tệp tin
-                    System.IO.File.Delete(duongDanTepTin);
+                    // xóa hình ảnh cũ
+                    string duongDanTepTin = Path.Combine(Server.MapPath("~/assets/img/"), editnv.HinhAnh.Substring(12));
+                    if (System.IO.File.Exists(duongDanTepTin))
+                    {
+                        // Thực hiện xóa tệp tin
+                        System.IO.File.Delete(duongDanTepTin);
+                    }
                 }
                 // thực hiện lưu hình ảnh mới vào file /assets/Img và lưu đường dẫn vào object nv
                 HandleImg(nv);

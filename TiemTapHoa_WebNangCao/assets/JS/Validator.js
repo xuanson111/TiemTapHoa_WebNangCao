@@ -121,7 +121,7 @@ function Validator(options) {
 
             Array.from(inputElements).forEach(function (inputElement) {
                 let errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-                if (inputElements) {
+                if (inputElement && !inputElement.disabled) {
                     // xử lý trường hợp người dùng blur khỏi ô input
                     inputElement.onblur = () => {
                         validate(inputElement, rule);
@@ -257,6 +257,16 @@ Validator.isImage = (selector) => {
         }
     }
 }
+
+Validator.isNumberAndMinValue = function (selector, minValue, message) {
+    return {
+        selector,
+        test(value) {
+            const isValidNumber = !isNaN(value) && isFinite(value);
+            return (isValidNumber && value >= minValue) ? undefined : message || `Vui lòng nhập một số lớn hơn hoặc bằng ${minValue}`;
+        }
+    };
+};
 
 /** Cách dùng
  * 

@@ -1,3 +1,5 @@
+C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.csproj.AssemblyReference.cache
+C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.csproj.CoreCompileInputs.cache
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\TiemTapHoa_WebNangCao.dll.config
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\TiemTapHoa_WebNangCao.dll
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\TiemTapHoa_WebNangCao.pdb
@@ -76,8 +78,6 @@ C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\S
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\Newtonsoft.Json.xml
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\Antlr3.Runtime.pdb
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.csproj.AssemblyReference.cache
-C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.csproj.CoreCompileInputs.cache
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.csproj.CopyComplete
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.dll
 C:\Users\Xuan Son\source\repos\TiemTapHoa_WebNangCao\TiemTapHoa_WebNangCao\obj\Debug\TiemTapHoa_WebNangCao.pdb

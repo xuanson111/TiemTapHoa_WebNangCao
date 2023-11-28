@@ -131,9 +131,11 @@
     <Compile Include="Controllers\BangLuongController.cs" />
     <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\HangHoaController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NhaCungCapController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\PhieuNhapController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +158,8 @@
     <Compile Include="Models\HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietHDView.cs" />
+    <Compile Include="Models\HoaDonView.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,6 +185,9 @@
     <Compile Include="Models\PhieuNhap.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TaiKhoan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -188,9 +195,14 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\BangLuongView.cs" />
+    <Compile Include="Models\ChiTietPhieuNhapView.cs" />
+    <Compile Include="Models\PhieuNhapView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\CSS\addBill.css" />
     <Content Include="assets\CSS\base.css" />
+    <Content Include="assets\CSS\dashboard.css" />
     <Content Include="assets\CSS\form.css" />
     <Content Include="assets\CSS\goods.css" />
     <Content Include="assets\CSS\layout.css" />
@@ -214,6 +226,7 @@
     <Content Include="assets\Img\nem nướng235749903.jpg" />
     <Content Include="assets\Img\sườn chua ngọt233146188.jpg" />
     <Content Include="assets\Img\Xoài lắc231225426.jpg" />
+    <Content Include="assets\JS\chart.js" />
     <Content Include="assets\JS\showHideForm.js" />
     <Content Include="assets\JS\showHideSidebar.js" />
     <Content Include="assets\JS\Validator.js" />
@@ -293,11 +306,21 @@
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\Create.cshtml" />
     <Content Include="Views\NhanVien\Edit.cshtml" />
+    <Content Include="Views\HangHoa\Index.cshtml" />
+    <Content Include="Views\HangHoa\Create.cshtml" />
+    <Content Include="Views\HangHoa\Edit.cshtml" />
+    <Content Include="Views\HoaDon\Index.cshtml" />
+    <Content Include="Views\PhieuNhap\Create.cshtml" />
+    <Content Include="Views\PhieuNhap\Details.cshtml" />
+    <Content Include="Views\PhieuNhap\Index.cshtml" />
+    <Content Include="Views\BangLuong\Create.cshtml" />
+    <Content Include="Views\BangLuong\Create1.cshtml" />
+    <Content Include="Views\BangLuong\Edit.cshtml" />
+    <Content Include="Views\BangLuong\Index.cshtml" />
+    <Content Include="Views\NhaCungCap\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BangLuong\" />
-    <Folder Include="Views\HangHoa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

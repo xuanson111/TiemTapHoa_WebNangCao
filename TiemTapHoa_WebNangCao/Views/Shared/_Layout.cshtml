@@ -82,13 +82,13 @@
                         </a>
                     </li>
                     <li class="sidebar__item">
-                        <a href="#">
+                        <a href="@Url.Action("Index", "HoaDon")" class="@(page == "HoaDon" ? "active" : "")">
                             <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                            <span>Thu ngân</span>
+                            <span>Giao dịch</span>
                         </a>
                     </li>
                     <li class="sidebar__item">
-                        <a href="#">
+                        <a href="@Url.Action("Index", "PhieuNhap")" class="@(page == "PhieuNhap" ? "active" : "")">
                             <i class="fa-solid fa-truck"></i>
                             <span>Nhập hàng</span>
                         </a>
@@ -117,12 +117,12 @@
                             <span>Chức vụ</span>
                         </a>
                     </li>
-                    <li class="sidebar__item">
+                    @*<li class="sidebar__item">
                         <a href="#">
                             <i class="fa-solid fa-coins"></i>
                             <span>Doanh thu</span>
                         </a>
-                    </li>
+                    </li>*@
                 </ul>
             </div>
 

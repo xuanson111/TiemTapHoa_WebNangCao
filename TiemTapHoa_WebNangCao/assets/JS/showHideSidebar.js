@@ -58,9 +58,11 @@ window.addEventListener('resize', (e) => {
         deck.style.display = 'none';
         sidebar.style.transform = 'translateX(0)';
         sidebar.style.position = 'static';
+        content.style.padding = '20px 40px 20px 20px';
     } else {
         handleShowHideCate(false);
         sidebar.style.position = 'fixed';
+        content.style.padding = '20px';
     }
 })
 

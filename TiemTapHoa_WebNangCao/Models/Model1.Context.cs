@@ -36,5 +36,6 @@ namespace TiemTapHoa_WebNangCao.Models
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<ThongKeDoanhThu> ThongKeDoanhThus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

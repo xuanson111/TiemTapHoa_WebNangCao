@@ -1,0 +1,116 @@
+﻿.container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.row {
+    margin-left: -12px !important;
+    margin-right: -12px !important;
+}
+
+.col {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+.content-main {
+}
+
+/* --------------- sale and revenue ------------------------ */
+
+.sale-and-revenue {
+    max-width: 100% !important;
+}
+
+.sale-and-revenue__item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+    .sale-and-revenue__item i {
+        font-size: 3.6rem;
+        color: #1d89e4;
+        padding-right: 24px;
+    }
+
+.sale-and-revenue__value {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sale-and-revenue__value h3 {
+        font-size: 1.4rem;
+        color: #3c3c3c;
+        margin-bottom: 8px;
+    }
+
+    .sale-and-revenue__value p {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+/* ------------------ chart top product, chart revenue ------------------------*/
+
+.dashboard-char {
+}
+
+.chart-item {
+    background-color: #fff;
+    margin-top: 24px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+    .chart-item h2 {
+        margin: 32px 0 24px;
+        font-size: 2.4rem;
+    }
+
+.chart-item__content {
+    flex: 1;
+    width: 100%;
+    padding: 8px;
+}
+
+.char-top-product {
+}
+
+.char-revenue {
+}
+
+/* ----------------------- recent sales ----------------------------- */
+
+.recent-sales {
+    background-color: #fff;
+    margin-top: 24px;
+    border-radius: 10px;
+}
+
+.recent-sales-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 16px 0;
+    margin-bottom: -8px;
+}
+
+    .recent-sales-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .recent-sales-title a {
+        font-size: 1.6rem;
+        text-decoration: none;
+        color: #1d89e4;
+        font-weight: 600;
+    }

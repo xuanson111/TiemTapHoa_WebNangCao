@@ -5,6 +5,7 @@
     padding: 12px 16px;
     border-radius: 12px;
     margin-top: 4px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .title {
@@ -34,6 +35,7 @@
     padding: 16px;
     margin-top: 16px;
     border-radius: 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .data-management {
@@ -41,10 +43,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .data-search {
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .search-input {
@@ -70,6 +76,7 @@
         font-size: 1.5rem;
         opacity: .5;
     }
+
     .search-input .buttonSearch {
         padding: 0 12px;
         margin: 0 0 0 8px;
@@ -83,7 +90,6 @@
 
 
 .search-filter {
-    margin-left: 8px;
 }
 
     .search-filter select {
@@ -94,6 +100,7 @@
         font-size: 1.6rem;
         outline-color: #1d89e4;
         cursor: pointer;
+        min-width: 80px;
     }
 
 .data-update {

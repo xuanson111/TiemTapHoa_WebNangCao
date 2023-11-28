@@ -1,0 +1,129 @@
+﻿@model TiemTapHoa_WebNangCao.Models.ChiTietPhieuNhapView
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities db = new TiemTapHoa_WebNangCao.Models.DBTiemTapHoaEntities();
+}
+
+<link rel="stylesheet" href="~/assets/CSS/form.css" />
+<link rel="stylesheet" href="~/assets/CSS/management.css" />
+
+<div class="link">
+    <h2 class="title">Nhân viên</h2>
+    <div class="link_body">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Index", "PhieuNhap")">Phiếu nhập</a>
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="@Url.Action("Create", "PhieuNhap")">Thêm Phiếu nhập</a>
+    </div>
+</div>
+
+<form action="" id="form-add" method="POST" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h2 class="form-heading">Thêm phiếu nhập</h2>
+    <div class="form-result">
+        @{
+            if (ViewBag.addSuccessNV != null)
+            {
+                <div class="success-form">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>@ViewBag.addSuccessNV</p>
+                </div>
+            }
+            else if (ViewBag.addErrorNV != null)
+            {
+                <div class="error-form">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <p>@ViewBag.addErrorNV</p>
+                </div>
+            }
+        }
+
+    </div>
+
+    <div class="row form-info">
+        <div class="col-lg-10 col-md-8 col-6">
+            <div class="row">
+                <div class="form-group col-lg-4 col-md-6 col-12">
+                    <label class="form-label" for="position">Nhà cung cấp<span class="input-required">*</span></label>
+                    <select id="NhaCungCap" name="NhaCungCap" class="form__control">
+                        <option value="">Chọn nhà cung cấp</option>
+                        @{
+                            foreach (var ncc in db.NhaCungCaps)
+                            {
+                                <option value="@ncc.MaNCC">@ncc.TenNCC</option>
+                            }
+                        }
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group col-lg-4 col-md-6 col-12">
+                    <label class="form-label" for="position">Hàng hóa<span class="input-required">*</span></label>
+                    <select id="HangHoa" name="HangHoa" class="form__control">
+                        <option value="">Chọn hàng hóa</option>
+                        @{
+                            foreach (var hh in db.HangHoas)
+                            {
+                                <option value="@hh.MaHH">@hh.TenHH</option>
+                            }
+                        }
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group col-lg-4 col-md-6 col-12">
+                    <label class="form-label">Số lượng<span class="input-required">*</span></label>
+                    @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form__control", placeholder = "Số lượng" } })
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group col-lg-4 col-md-6 col-12">
+                    <label class="form-label">Đơn giá<span class="input-required">*</span></label>
+                    @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form__control", placeholder = "Đơn giá" } })
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group col-lg-4 col-md-6 col-12">
+                    <label class="form-label">Ngày tạo</label>
+                    @Html.EditorFor(model => model.NgayTao, new { htmlAttributes = new { @class = "form__control", @type = "date" } })
+                    <span class="error-message"></span>
+                </div>
+
+                @*<div class="form-group col-lg-4 col-md-6 col-12">
+            <label class="form-label">Địa chỉ</label>
+            @Html.EditorFor(model => model.ThanhTien, new { htmlAttributes = new { @class = "form__control", placeholder = "Địa chỉ" } })
+            <span class="error-message"></span>
+            </div>*@
+        </div>
+        </div>
+    </div>
+
+    <div class="block-button">
+        <button class="btn-submit">Thêm</button>
+    </div>
+</form>
+
+<script src="~/assets/JS/Validator.js"></script>
+<script>
+
+    Validator({
+        form: '#form-add',
+        formGroupSelector: '.form-group',
+        errorSelector: '.error-message',
+        rules: [
+            Validator.isRequired('#NhaCungCap'),
+
+            Validator.isRequired('#HangHoa'),
+
+            Validator.isRequired('#SoLuong'),
+            Validator.isNumberAndMinValue('#SoLuong', 1),
+
+            /*Validator.isRequired('#SoTaiKhoan'),*/
+
+            Validator.isRequired('#DonGia'),
+        ]
+    });
+</script>

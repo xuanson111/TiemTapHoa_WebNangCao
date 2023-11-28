@@ -10,6 +10,8 @@
     <Property Name="Nam" Type="Int32" />
     <Property Name="Luong" Type="Double" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK__BangLuong__MaNV__403A8C7D" FromRole="BangLuong" ToRole="NhanVien" />
+    <Property Name="SoNgayNghi" Type="Int32" />
+    <Property Name="TongSoNgay" Type="Int32" />
   </EntityType>
   <EntityType Name="ChiTietHD">
     <Key>
@@ -55,6 +57,7 @@
     <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChiTietHDs" Relationship="Self.FK__ChiTietHD__MaHH__48CFD27E" FromRole="HangHoa" ToRole="ChiTietHD" />
     <NavigationProperty Name="ChiTietPhieuNhaps" Relationship="Self.FK__ChiTietPhi__MaHH__4F7CD00D" FromRole="HangHoa" ToRole="ChiTietPhieuNhap" />
+    <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="HoaDon">
     <Key>
@@ -268,5 +271,16 @@
       <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
       <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="DBTiemTapHoaModel.sysdiagram" />
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
